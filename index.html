@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>m7md_linux ~ الصفحة الرئيسية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f0c;
+    --bg-soft:#10160f;
+    --panel:#111813;
+    --line:#1f2b1c;
+    --green:#39d353;
+    --green-dim:#1f7a30;
+    --amber:#f0b429;
+    --text:#d7e4d2;
+    --text-dim:#7e9279;
+    --white:#eef5ea;
+    --radius:10px;
+    --mono:'JetBrains Mono', monospace;
+    --arabic:'Tajawal', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--arabic);
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(57,211,83,0.06), transparent 35%),
+      radial-gradient(circle at 85% 75%, rgba(240,180,41,0.05), transparent 40%);
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.012) 0px,
+      rgba(255,255,255,0.012) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    z-index:999;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--green); color:#06200e;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,15,12,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1080px; margin:0 auto;
+    font-family:var(--mono);
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:700; color:var(--white); font-size:15px;
+    letter-spacing:0.5px;
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--green); box-shadow:0 0 8px var(--green); animation:blink 2.4s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .navlinks{display:flex; gap:26px; font-size:13px; color:var(--text-dim);}
+  .navlinks a{transition:color .2s;}
+  .navlinks a:hover{color:var(--green);}
+  @media (max-width:680px){.navlinks{display:none;}}
+
+  .hero{
+    padding:90px 0 70px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:50px;
+    align-items:center;
+  }
+  @media (max-width:860px){.hero{grid-template-columns:1fr; padding:50px 0 40px;}}
+
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--green);
+    border:1px solid var(--green-dim); background:rgba(57,211,83,0.06);
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 12px; border-radius:30px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; font-size:8px; color:var(--green);}
+
+  h1.title{
+    font-size:clamp(32px,5vw,52px);
+    font-weight:900; color:var(--white); line-height:1.25;
+    margin-bottom:18px;
+  }
+  h1.title span{color:var(--green);}
+
+  .lede{
+    font-size:16.5px; color:var(--text-dim); line-height:1.9; max-width:520px; margin-bottom:30px;
+  }
+
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; font-weight:600;
+    padding:13px 24px; border-radius:8px; border:1px solid var(--line);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:all .2s;
+  }
+  .btn-primary{background:var(--green); color:#06200e; border-color:var(--green);}
+  .btn-primary:hover{box-shadow:0 0 22px rgba(57,211,83,0.45); transform:translateY(-2px);}
+  .btn-ghost{color:var(--text); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--green-dim); color:var(--green);}
+
+  .term{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 20px 60px -20px rgba(0,0,0,0.7);
+    overflow:hidden;
+    font-family:var(--mono);
+  }
+  .term-top{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 14px; background:var(--bg-soft); border-bottom:1px solid var(--line);
+  }
+  .term-top span{width:10px; height:10px; border-radius:50%;}
+  .dot-r{background:#ff5f57;} .dot-y{background:#febc2e;} .dot-g{background:#28c840;}
+  .term-title{margin-right:auto; font-size:11.5px; color:var(--text-dim); direction:ltr;}
+  .term-body{padding:22px 20px; font-size:13.2px; line-height:1.9; direction:ltr; text-align:left;}
+  .term-body .ps{color:var(--green);}
+  .term-body .path{color:var(--amber);}
+  .term-body .cmd{color:var(--white);}
+  .term-body .out{color:var(--text-dim);}
+  .avatar-block{
+    display:flex; align-items:center; gap:16px; margin:16px 0 18px;
+    padding:14px; background:var(--bg-soft); border:1px solid var(--line); border-radius:8px;
+  }
+  .avatar-block img{
+    width:64px; height:64px; border-radius:8px; object-fit:cover;
+    border:1px solid var(--green-dim); background:#000;
+  }
+  .avatar-block .who b{color:var(--white); display:block; font-size:13.5px;}
+  .avatar-block .who small{color:var(--text-dim); font-size:11.5px;}
+  .cursor{display:inline-block; width:8px; height:15px; background:var(--green); animation:caret 1s steps(2) infinite; vertical-align:middle;}
+  @keyframes caret{50%{opacity:0;}}
+
+  .section{padding:70px 0;}
+  .sec-head{margin-bottom:40px;}
+  .sec-tag{font-family:var(--mono); color:var(--green); font-size:12px; letter-spacing:1px;}
+  .sec-title{font-size:clamp(24px,3.4vw,34px); font-weight:900; color:var(--white); margin-top:10px;}
+  .sec-divider{height:1px; background:linear-gradient(90deg, var(--green-dim), transparent); margin-top:18px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:780px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--text-dim); line-height:2; font-size:15.5px; margin-bottom:16px;}
+  .about-text b{color:var(--white);}
+
+  .stack-list{display:flex; flex-direction:column; gap:14px;}
+  .stack-item{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--panel); border:1px solid var(--line); border-radius:8px;
+    padding:14px 18px;
+  }
+  .stack-item .name{font-family:var(--mono); font-size:13.5px; color:var(--white);}
+  .stack-item .bar{width:120px; height:5px; background:var(--bg-soft); border-radius:6px; overflow:hidden;}
+  .stack-item .bar i{display:block; height:100%; background:var(--green); border-radius:6px;}
+
+  .icon-row{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:18px; margin-top:10px;
+  }
+  .icon-link{
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    width:96px; padding:18px 10px;
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    transition:transform .25s, border-color .25s, box-shadow .25s;
+  }
+  .icon-link:hover{transform:translateY(-5px); border-color:var(--green-dim); box-shadow:0 14px 34px -16px rgba(57,211,83,0.3);}
+  .icon-link-glyph{
+    width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--bg-soft); border:1px solid var(--line); color:var(--green);
+    transition:border-color .25s, color .25s;
+  }
+  .icon-link-glyph svg{display:block; width:18px; height:18px;}
+  .icon-link:hover .icon-link-glyph{border-color:var(--green); color:var(--white);}
+  .icon-link-label{font-family:var(--mono); font-size:11.5px; color:var(--text-dim);}
+  .icon-link:hover .icon-link-label{color:var(--text);}
+
+  /* ---------- ACHIEVEMENTS (terminal log style) ---------- */
+  .log-list{
+    display:flex; flex-direction:column; gap:0; border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; background:var(--panel); font-family:var(--mono);
+  }
+  .log-item{
+    display:flex; align-items:baseline; gap:12px;
+    padding:14px 18px; border-bottom:1px solid var(--line); font-size:13px;
+  }
+  .log-item:last-child{border-bottom:none;}
+  .log-item .tag{color:var(--green); flex-shrink:0;}
+  .log-item .msg{color:var(--text); direction:rtl; text-align:right; flex:1;}
+  .log-item .time{color:var(--text-dim); font-size:11px; flex-shrink:0; direction:ltr;}
+
+  footer{
+    border-top:1px solid var(--line); padding:36px 0; margin-top:30px;
+  }
+  .foot-row{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
+  }
+  .foot-row p{font-family:var(--mono); font-size:12px; color:var(--text-dim); direction:ltr;}
+  .foot-row p b{color:var(--green);}
+
+  .fade{opacity:0; transform:translateY(16px); transition:opacity .6s, transform .6s;}
+  .fade.show{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span> m7md@linux:~$</div>
+    <div class="navlinks">
+      <a href="#about">من أنا</a>
+      <a href="#log">السجل</a>
+      <a href="#links">الحسابات</a>
+      <a href="#contact">تواصل</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">متصل الآن • متاح للتواصل</div>
+      <h1 class="title">أهلاً، أنا <span>m7md</span><br>واحد مخضرم بلينكس</h1>
+      <p class="lede">اهلا اني محمد انسان متوحد لفل الوحش ما عندي سالفة</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#links">$ تعرف اكثر علية (لانك فارغ)</a>
+        <a class="btn btn-ghost" href="#about">من أنا ↓</a>
+      </div>
+    </div>
+
+    <div class="term">
+      <div class="term-top">
+        <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        <span class="term-title">konsole</span>
+      </div>
+      <div class="term-body">
+        <div><span class="ps">m7md@linux</span>:<span class="path">~</span>$ <span class="cmd">whoami</span></div>
+        <div class="avatar-block">
+          <img src="images.jpg" alt="m7md_linux avatar">
+          <div class="who">
+            <b>m7md_linux</b>
+            <small>Linux User</small>
+          </div>
+        </div>
+        <div class="out">distro   : lfs /</div>
+        <div class="out">shell    : bash /</div>
+        <div class="out">status   : Open Source /</div>
+        <div style="margin-top:10px;"><span class="ps">m7md@linux</span>:<span class="path">~</span>$ <span class="cursor"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section fade" id="about">
+    <div class="sec-head">
+      <div class="sec-tag">// 01_about</div>
+      <h2 class="sec-title">من أنا</h2>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          أنا <b>m7md</b>، مستخدم لينكس و BSD، 
+         أجرّب توزيعات و أدوات جديدة لان ما عندي شي.
+        </p>
+        <p>
+            تخيل بسبب الفراغ الكوني عندي جاي اسوي linux from scratch
+        </p>
+        <p>
+          حتة هاي الصفحة اسويهة لاني فارغ لا غير
+        </p>
+      </div>
+      <div class="stack-list">
+        <div class="stack-item"><span class="name">Linux Administration</span><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="stack-item"><span class="name">Shell Scripting</span><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="stack-item"><span class="name">Problem Solving</span><div class="bar"><i style="width:93%"></i></div></div>
+        <div class="stack-item"><span class="name">Open Source Tools</span><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="stack-item"><span class="name">Community Support</span><div class="bar"><i style="width:90%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOG / TIMELINE -->
+  <section class="section fade" id="log">
+    <div class="sec-head">
+      <div class="sec-tag">// 02_log</div>
+      <h2 class="sec-title">سجل الفراغ</h2>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="log-list">
+      <div class="log-item"><span class="tag">[OK]</span><span class="msg">سويت بوت يوزفل تماماً بشهادتي</span><span class="time">~2 weeks ago</span></div>
+      <div class="log-item"><span class="tag">[OK]</span><span class="msg">جربت 6 توزيعات بأسبوع و رجعت لنفس الاولى</span><span class="time">~1 month ago</span></div>
+      <div class="log-item"><span class="tag">[WARN]</span><span class="msg">كسرت النظام و صلحته</span><span class="time">~1 month ago</span></div>
+      <div class="log-item"><span class="tag">[OK]</span><span class="msg">بديت LFS و توقفت بنص الطريق ثلاث مرات</span><span class="time">ongoing</span></div>
+      <div class="log-item"><span class="tag">[INFO]</span><span class="msg">سويت هاي الصفحة بدل ما اطلع امشي</span><span class="time">today</span></div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="section fade" id="contact">
+    <div class="term" style="max-width:760px; margin:0 auto;">
+      <div class="term-top">
+        <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        <span class="term-title">contact.sh</span>
+      </div>
+      <div class="term-body" style="text-align:center; direction:rtl; font-family:var(--arabic);">
+        <p style="color:var(--white); font-size:18px; font-weight:800; margin-bottom:10px;">
+          لنبقى على تواصل دائم
+        </p>
+        <p style="color:var(--text-dim); font-size:14px; margin-bottom:26px;">
+         اذا تريد تراسلني
+        </p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://t.me/o0o_b" target="_blank">تواصل عبر تيليجرام</a>
+          <a class="btn btn-ghost" href="https://discord.gg/7tAGWZ63" target="_blank">انضم للديسكورد</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ICON LINKS -->
+  <section class="section fade" id="links" style="padding-top:10px;">
+    <div class="sec-head" style="text-align:center;">
+      <div class="sec-tag">// find_me_at</div>
+      <div class="sec-divider" style="max-width:200px; margin:18px auto 0;"></div>
+    </div>
+    <div class="icon-row">
+      <a class="icon-link" href="https://www.youtube.com/@m7md_linux" target="_blank" title="يوتيوب">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.5 6.2c-.3-1.1-1.1-1.9-2.2-2.2C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.3.5c-1.1.3-1.9 1.1-2.2 2.2C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1.1 1.1 1.9 2.2 2.2 1.9.5 9.3.5 9.3.5s7.4 0 9.3-.5c1.1-.3 1.9-1.1 2.2-2.2.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.5v-7l6 3.5-6 3.5z"/></svg></span>
+        <span class="icon-link-label">يوتيوب</span>
+      </a>
+      <a class="icon-link" href="https://www.tiktok.com/@3o_qt" target="_blank" title="تيك توك">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.6 5.8c-.9-.7-1.5-1.7-1.7-2.8h-3v12.4c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5c.3 0 .5 0 .8.1v-3.1c-.3 0-.5-.1-.8-.1-3 0-5.5 2.5-5.5 5.5s2.5 5.5 5.5 5.5 5.5-2.5 5.5-5.5V9.4c1.2.9 2.6 1.4 4.1 1.4V7.8c-.9 0-1.7-.3-2.4-.8-.3-.3-.6-.6-.9-1z"/><path d="M14 3h2.9c.3 1.6 1.2 3 2.6 3.9.8.5 1.8.8 2.8.8v3c-1.5 0-3-.5-4.2-1.4v6.1c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.3 0 .5 0 .8.1v3.1c-.3-.1-.5-.1-.8-.1-1.6 0-2.9 1.3-2.9 2.9s1.3 2.9 2.9 2.9 2.9-1.3 2.9-2.9V3z"/></svg></span>
+        <span class="icon-link-label">تيك توك</span>
+      </a>
+      <a class="icon-link" href="https://www.instagram.com/linux_userpro" target="_blank" title="انستغرام">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="icon-link-label">انستغرام</span>
+      </a>
+      <a class="icon-link" href="https://github.com/m7md-al-7ref/" target="_blank" title="جيت هاب">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z"/></svg></span>
+        <span class="icon-link-label">جيت هاب</span>
+      </a>
+      <a class="icon-link" href="https://t.me/o0o_b" target="_blank" title="تيليجرام">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.2-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.4-1 .4l.4-5 9.1-8.2c.4-.4-.1-.5-.6-.2L6.5 13l-5-1.6c-1.1-.3-1.1-1.1.2-1.6L20.4 3.2c.9-.4 1.7.2 1.5 1.1z"/></svg></span>
+        <span class="icon-link-label">تيليجرام</span>
+      </a>
+      <a class="icon-link" href="https://discord.gg/7tAGWZ63" target="_blank" title="ديسكورد">
+        <span class="icon-link-glyph"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.3 5.4C18.8 4.7 17.2 4.2 15.6 4c-.2.4-.5.9-.6 1.3-1.7-.2-3.4-.2-5 0-.2-.4-.4-.9-.6-1.3-1.6.2-3.2.7-4.6 1.4C2.1 9 1.4 12.6 1.7 16.1c1.8 1.3 3.5 2.1 5.2 2.6.4-.6.8-1.2 1.1-1.9-.6-.2-1.2-.5-1.7-.8.1-.1.3-.2.4-.3 3.4 1.6 7.1 1.6 10.5 0 .1.1.3.2.4.3-.6.3-1.1.6-1.7.8.3.7.7 1.3 1.1 1.9 1.7-.5 3.5-1.3 5.2-2.6.4-4.1-.6-7.7-2.4-10.7zM8.7 13.8c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.8 1 1.8 2.1-.8 2.1-1.8 2.1zm6.6 0c-1 0-1.8-.9-1.8-2.1s.8-2.1 1.8-2.1 1.8 1 1.8 2.1-.8 2.1-1.8 2.1z"/></svg></span>
+        <span class="icon-link-label">ديسكورد</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>© 2026 <b>m7md_linux</b> — Powered by Tux &amp; Open Source</p>
+    <p>made with vim, coffee, and a tiling window manager</p>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.fade');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+  }, {threshold:0.15});
+  items.forEach(i=>obs.observe(i));
+</script>
+
+</body>
+</html>
